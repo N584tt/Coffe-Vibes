@@ -242,10 +242,161 @@ section { padding: 5rem 0; }
 .modal.active { display: flex; }
 .modal-content { position: relative; width: 90%; max-width: 800px; background: #000; }
 .close { position: absolute; top: 10px; right: 15px; font-size: 2rem; color: #fff; cursor: pointer; }
+/* === АДАПТИВНЫЕ КАРТОЧКИ + СКРЫТИЕ ОТЗЫВОВ === */
 @media (max-width: 768px) {
-  .nav-menu, .theme-switcher, .mood-switcher { display: none; }
-  .mobile-menu-toggle { display: block; }
-  .hero-container { grid-template-columns: 1fr; text-align: center; }
-  .hero-image { order: -1; }
+  /* Карточки меню — 1 в ряд, компактные */
+  .specialities-grid,
+  .baristas-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .card,
+  .barista-card {
+    min-height: 300px;
+  }
+
+  .card-image img,
+  .barista-image img {
+    height: 160px;
+  }
+
+  .card-content,
+  .barista-content {
+    padding: 0.8rem;
+  }
+
+  .card h3,
+  .barista-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .card p,
+  .barista-card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+
+  /* Отзывы — только 4 */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .testimonial-card {
+    padding: 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  /* Скрываем все отзывы после 4-го */
+  .testimonial-card:nth-child(n+5) {
+    display: none;
+  }
 }
 
+/* === ПЛАНШЕТ (769–1024px) === */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .specialities-grid,
+  .baristas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-image img,
+  .barista-image img {
+    height: 180px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* На планшете — 5 отзывов */
+  .testimonial-card:nth-child(n+6) {
+    display: none;
+  }
+}
+
+/* === ДЕСКТОП (1025px+) — все отзывы */
+@media (min-width: 1025px) {
+  .testimonial-card:nth-child(n+6) {
+    display: block;
+  }
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--text);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  transition: all 0.4s ease;
+}
+
+.nav-menu.active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg);
+  padding: 6rem 2rem 2rem;
+  gap: 1.5rem;
+  z-index: 999;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+.nav-menu a {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none; /* скрыто по умолчанию */
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .theme-switcher,
+  .mood-switcher {
+    display: none;
+  }
+
+  .nav-container {
+    justify-content: space-between;
+    padding: 1rem;
+  }
+}

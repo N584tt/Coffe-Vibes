@@ -112,12 +112,22 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   // ===== MOBILE MENU =====
-  const mobileToggle = document.querySelector('.mobile-menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
-  }
+const mobileToggle = document.querySelector('.mobile-menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
 
+if (mobileToggle && navMenu) {
+  mobileToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    mobileToggle.textContent = navMenu.classList.contains('active') ? '×' : '☰';
+  });
+
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      mobileToggle.textContent = '☰';
+    });
+  });
+}
   // ===== ВИДЕО МОДАЛКА =====
   const playBtn = document.querySelector('.play-btn');
   const modal = document.getElementById('video-modal');
@@ -132,6 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === modal) modal.style.display = 'none';
   });
 
+
+
   // ===== АНИМАЦИИ ПРИ ПРОКРУТКЕ =====
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -144,3 +156,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.card, .testimonial-card, .barista-card').forEach(el => observer.observe(el));
 });
+
