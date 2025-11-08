@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Vibes</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="container nav-container">
+      <div class="logo">Coffee Vibes</div>
+      <ul class="nav-menu">
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#specialities">Специалитеты</a></li>
+        <li><a href="#testimonials">Отзывы</a></li>
+        <li><a href="#baristas">Бариста</a></li>
+      </ul>
+      <div class="theme-switcher">
+        <button data-time="morning">Утро</button>
+        <button data-time="day">День</button>
+        <button data-time="evening">Вечер</button>
+        <button data-time="night">Ночь</button>
+      </div>
+      <div class="mood-switcher">
+        <button data-mood="energetic">Энергичный</button>
+        <button data-mood="tired">Уставший</button>
+        <button data-mood="calming">Успокаивающий</button>
+      </div>
+      <button class="mobile-menu-toggle">Menu</button>
+    </div>
+  </nav>
+  <!-- HERO SECTION -->
+  <header id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">Coffee</h1>
+        <h2 class="hero-subtitle">Espresso Loaded</h2>
+        <p class="hero-tagline"> Идеальный утренний ритуал</p>
+        <p class="hero-desc">
+          Это место, где каждый глоток — маленькое приключение. Свежие зёрна, тёплый свет, аромат, который будит воспоминания.
+        </p>
+        <button class="btn-primary play-btn" aria-label="Смотреть историю">
+          <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Watch Our Story
+        </button>
+      </div>
+      <div class="hero-image">
+        <img src="./images/coffe/hot-coffe.jpg" alt="Горячая чашка кофе">
+      </div>
+    </div>
+  </header>
+  <!-- SPECIALITIES SECTION -->
+  <section id="specialities" class="specialities">
+    <div class="container">
+      <h2 class="section-title">Наши специалитеты</h2>
+      <p class="section-intro">
+        Мы обжариваем зёрна сами, чтобы каждый напиток был особенным.
+      </p>
+      <div class="specialities-grid"></div>
+    </div>
+  </section>
+  <!-- TESTIMONIALS SECTION -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2 class="section-title">Наши счастливые гости</h2>
+      <p class="section-intro">
+        Более 10 000 человек начинают утро с нами каждую неделю.
+      </p>
+      <div class="testimonials-grid"></div>
+    </div>
+  </section>
+  <!-- BARISTA SECTION -->
+  <section id="baristas" class="baristas">
+    <div class="container">
+      <h2 class="section-title">Наши бариста</h2>
+      <p class="section-intro">
+        Люди, которые превращают зёрна в волшебство.
+      </p>
+      <div class="baristas-grid"></div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>Coffee Vibes</h3>
+        <p>Где каждый глоток — это история.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Часы работы</h4>
+        <p>Пн–Пт: 7:00–22:00</p>
+        <p>Сб–Вс: 8:00–23:00</p>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <p>+7 (777) 123-45-67</p>
+        <p>coffee@vibes.kz</p>
+      </div>
+      <div class="footer-col">
+        <h4>Социальные сети</h4>
+        <p>Instagram | Telegram | TikTok</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Coffee Vibes. Все права защищены.</p>
+    </div>
+  </footer>
+  <!-- MODAL -->
+  <div class="modal" id="video-modal">
+    <div class="modal-content">
+      <span class="close">×</span>
+     
+    </div>
+  </div>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
